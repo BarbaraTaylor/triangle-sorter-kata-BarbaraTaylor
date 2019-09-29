@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 public class ShapeWithThreeLengths {
 	
-	boolean isAnActualTriangle = false;
-	int sideA;
-	int sideB;
-	int sideC;
+	private int sideA;
+	private int sideB;
+	private int sideC;
 	
 	public ShapeWithThreeLengths (int A, int B, int C) {
 		this.sideA = A;
@@ -18,12 +17,14 @@ public class ShapeWithThreeLengths {
 	public boolean isAnActualTriangle() {
 		int[] sidesArray = {this.sideA, this.sideB, this.sideC};
 		Arrays.parallelSort(sidesArray);
+		boolean isATriangle;
 		 if (sidesArray[0] + sidesArray[1] > sidesArray[2]) {
-			 return true;
+			 isATriangle = true;
 		 }
 		 else {
-			 return false;
+			 isATriangle = false;
 		 }
+		 return isATriangle;
 	}
 	
 	
