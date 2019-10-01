@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class ShapeWithThreeLengths {
 	
-	private int sideA;
-	private int sideB;
-	private int sideC;
+	protected int sideA;
+	protected int sideB;
+	protected int sideC;
 	
 	public ShapeWithThreeLengths (int A, int B, int C) {
 		this.sideA = A;

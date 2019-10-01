@@ -3,7 +3,6 @@ package triangle_sorter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class AppUserTriangleSorter {
 	
 	private static Scanner userInput = new Scanner(System.in);
@@ -43,17 +42,59 @@ public class AppUserTriangleSorter {
 				String userSelection = userInput.nextLine();
 				if (userSelection.equalsIgnoreCase("q")) {
 					continueTestingForTriangles = false;
-					System.out.println("Thank you. Have a great day.");
-					//System.exit(0);
+					System.out.println("Thank you for using the Triangle Sorter"
+							+ " today!\nGoodbye.");
 				}
 			}
 			else {
-				Triangle userInputTriangle = new Triangle(sideA, sideB, sideC);
 			
+				Triangle userInputTriangle = new Triangle(sideA, sideB, sideC);
+				
+				if (userInputTriangle.isAnEquilateralTriangle()) {
+					System.out.println("Your three sides make an equilateral triangle!");
+					System.out.println();
+					System.out.println("Please choose to (p)lay again or (q)uit.");
+					String userSelection2 = userInput.nextLine();
+					if (userSelection2.equalsIgnoreCase("q")) {
+						continueTestingForTriangles = false;
+						System.out.println("Thank you for using the Triangle Sorter"
+								+ " today!\nGoodbye.");
+					}
+				}
+				else if (userInputTriangle.isAnIsoscelesTriangle()) {
+				System.out.println("Your three sides make an isosceles triangle!");
+				System.out.println();
+				System.out.println("Please choose to (p)lay again or (q)uit.");
+				String userSelection3 = userInput.nextLine();
+				if (userSelection3.equalsIgnoreCase("q")) {
+					continueTestingForTriangles = false;
+					System.out.println("Thank you for using the Triangle Sorter"
+							+ " today!\nGoodbye.");
+					}
+				)
+				else if (userInputTriangle.isARightTriangle()) {
+				System.out.println("Your three sides make a right triangle!");
+				System.out.println();
+				System.out.println("Please choose to (p)lay again or (q)uit.");
+				String userSelection4 = userInput.nextLine();
+				if (userSelection4.equalsIgnoreCase("q")) {
+					continueTestingForTriangles = false;
+					System.out.println("Thank you for using the Triangle Sorter"
+							+ " today!\nGoodbye.");
+					}
+				}
+				else {
+				System.out.println("Your three sides make a triangle"
+						+ " of no particular type!");
+				System.out.println();
+				System.out.println("Please choose to (p)lay again or (q)uit.");
+					String userSelection4 = userInput.nextLine();
+					if (userSelection4.equalsIgnoreCase("q")) {
+						continueTestingForTriangles = false;
+						System.out.println("Thank you for using the Triangle Sorter"
+								+ " today!\nGoodbye.");	
+					}		
+				}
+				}
 			}
-		
-		
-		}
-	}
-
 }
