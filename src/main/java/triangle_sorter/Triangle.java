@@ -12,7 +12,9 @@ public class Triangle extends ShapeWithThreeLengths {
 		if ((this.sideA==this.sideB)&&(this.sideB==this.sideC)) {
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
 	}
 
 	// Returns true only if triangle is isosceles but NOT equilateral
@@ -22,7 +24,9 @@ public class Triangle extends ShapeWithThreeLengths {
 				((this.sideA==this.sideC)&&(this.sideA!=this.sideB)) ) {
 			return true;			
 		}
-		return false;
+		else {
+			return false;
+		}
 	}
 
 	public boolean isARightTriangle() {
@@ -32,13 +36,9 @@ public class Triangle extends ShapeWithThreeLengths {
 				(sidesArray[2]*sidesArray[2]) ) {
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
 	}
-	
-	
-	
-	
-	
-	
 
 }

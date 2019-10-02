@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class AppUserTriangleSorter {
 	
+	static boolean continueTestingForTriangles = true;
 	private static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -17,8 +18,6 @@ public class AppUserTriangleSorter {
 				+ " whether the triangle is \nEquilateral, Isosceles, Right, or "
 				+ "none of the above.");
 		System.out.println();
-		
-		boolean continueTestingForTriangles = true;
 		
 		while (continueTestingForTriangles) {
 		
@@ -33,68 +32,102 @@ public class AppUserTriangleSorter {
 			userInput.nextLine();
 		
 			ShapeWithThreeLengths userInputShape = new ShapeWithThreeLengths(sideA,sideB,sideC);
+			
 		
-			if (userInputShape.isAnActualTriangle()==false) {
+			if (userInputShape.isAnActualTriangle()==false) { // test for not a triangle
 				System.out.println("Sorry, the three lengths you typed in do NOT"
 				 	+ " constitute an actual triangle!");
 				System.out.println();
-				System.out.println("Please (t)ry again or (q)uit.");
+				System.out.println("Please choose to (p)lay again or (q)uit.");
 				String userSelection = userInput.nextLine();
 				if (userSelection.equalsIgnoreCase("q")) {
 					continueTestingForTriangles = false;
 					System.out.println("Thank you for using the Triangle Sorter"
 							+ " today!\nGoodbye.");
 				}
-			}
-			else {
+				else {
+					continueTestingForTriangles = true;
+				}
+			} // end IF (not an actual triangle)
 			
-				Triangle userInputTriangle = new Triangle(sideA, sideB, sideC);
+			
+			else // it is a triangle
+			{
+				System.out.println("Your three sides DO make a triangle!");
+				System.out.println();
 				
-				if (userInputTriangle.isAnEquilateralTriangle()) {
-					System.out.println("Your three sides make an equilateral triangle!");
+				Triangle userInputTriangle = new Triangle(sideA, sideB, sideC); // create Triangle object to test
+				
+				
+				if (userInputTriangle.isAnEquilateralTriangle()) { // test IF equilateral
+					System.out.println("Your triangle is an Equilateral Triangle!");
 					System.out.println();
 					System.out.println("Please choose to (p)lay again or (q)uit.");
 					String userSelection2 = userInput.nextLine();
+					
 					if (userSelection2.equalsIgnoreCase("q")) {
 						continueTestingForTriangles = false;
 						System.out.println("Thank you for using the Triangle Sorter"
 								+ " today!\nGoodbye.");
 					}
-				}
-				else if (userInputTriangle.isAnIsoscelesTriangle()) {
-				System.out.println("Your three sides make an isosceles triangle!");
-				System.out.println();
-				System.out.println("Please choose to (p)lay again or (q)uit.");
-				String userSelection3 = userInput.nextLine();
-				if (userSelection3.equalsIgnoreCase("q")) {
-					continueTestingForTriangles = false;
-					System.out.println("Thank you for using the Triangle Sorter"
-							+ " today!\nGoodbye.");
-					}
-				)
-				else if (userInputTriangle.isARightTriangle()) {
-				System.out.println("Your three sides make a right triangle!");
-				System.out.println();
-				System.out.println("Please choose to (p)lay again or (q)uit.");
-				String userSelection4 = userInput.nextLine();
-				if (userSelection4.equalsIgnoreCase("q")) {
-					continueTestingForTriangles = false;
-					System.out.println("Thank you for using the Triangle Sorter"
-							+ " today!\nGoodbye.");
+					else {
+						continueTestingForTriangles = true;
 					}
 				}
-				else {
-				System.out.println("Your three sides make a triangle"
-						+ " of no particular type!");
-				System.out.println();
-				System.out.println("Please choose to (p)lay again or (q)uit.");
+				
+				
+				else if (userInputTriangle.isAnIsoscelesTriangle()) { // test IF isosceles
+					System.out.println("Your triangle is an Isosceles Triangle!");
+					System.out.println();
+					System.out.println("Please choose to (p)lay again or (q)uit.");
+					String userSelection3 = userInput.nextLine();
+					if (userSelection3.equalsIgnoreCase("q")) {
+						continueTestingForTriangles = false;
+						System.out.println("Thank you for using the Triangle Sorter"
+							+ " today!\nGoodbye.");
+						}
+					else {
+						continueTestingForTriangles = true;
+					}
+				}
+				
+				
+				else if (userInputTriangle.isARightTriangle()) { // test IF a right triangle
+					System.out.println("Your triangle is a Right Triangle!");
+					System.out.println();
+					System.out.println("Please choose to (p)lay again or (q)uit.");
+					String userSelection4 = userInput.nextLine();
+					if (userSelection4.equalsIgnoreCase("q")) {
+						continueTestingForTriangles = false;
+						System.out.println("Thank you for using the Triangle Sorter"
+							+ " today!\nGoodbye.");
+						}
+					else {
+						continueTestingForTriangles = true;
+					}
+				}
+				
+				
+				else {		// is a triangle but not equilateral, isosceles, or right
+					System.out.println("Your three sides make a triangle"
+						+ " that is not equilateral, isosceles, or right!");
+					System.out.println();
+					System.out.println("Please choose to (p)lay again or (q)uit.");
 					String userSelection4 = userInput.nextLine();
 					if (userSelection4.equalsIgnoreCase("q")) {
 						continueTestingForTriangles = false;
 						System.out.println("Thank you for using the Triangle Sorter"
 								+ " today!\nGoodbye.");	
-					}		
+					}
+					else {
+						continueTestingForTriangles = true;
+					}
 				}
-				}
-			}
-}
+				
+			} // end ELSE (it IS a triangle)
+				
+		} // end while (continueTestingForTriangles)
+		
+	} // end main
+	
+}//end class AppUserTriangleSorter
